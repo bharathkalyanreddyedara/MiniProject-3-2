@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stego URL Security System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                    <circle cx="8.5" cy="8.5" r="1.5"/>
+                    <polyline points="21 15 16 10 5 21"/>
+                </svg>
+                <span>StegoGuard</span>
+            </div>
+            <div class="nav-links">
+                <a href="#" class="nav-link active">Dashboard</a>
+                <!-- <a href="docs.html" class="nav-link">Documentation</a> -->
+            </div>
+        </div>
+    </nav>
+
+    <div class="main-container">
+        <aside class="sidebar">
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Analysis</h3>
+                <ul class="sidebar-menu">
+                    <li class="menu-item active">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/>
+                        </svg>
+                        <span>Upload Image</span>
+                    </li>
+                    <!-- <li class="menu-item">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                        </svg>
+                        <span>Results</span>
+                    </li>
+                </ul> -->
+            </div>
+            
+            <!-- <div class="sidebar-section">
+                <h3 class="sidebar-title">System</h3>
+                <ul class="sidebar-menu">
+                    <li class="menu-item">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="3"/>
+                            <path d="M12 1v6m0 6v6M5.64 5.64l4.24 4.24m4.24 4.24l4.24 4.24M1 12h6m6 0h6M5.64 18.36l4.24-4.24m4.24-4.24l4.24-4.24"/>
+                        </svg>
+                        <span>Settings</span>
+                    </li>
+                </ul>
+            </div> -->
+        </aside>
+
+        <main class="content">
+            <header class="page-header">
+                <div>
+                    <h1 class="page-title">Steganographic URL Analysis</h1>
+                    <p class="page-subtitle">Extract and analyze hidden URLs from images using advanced ML detection</p>
+                </div>
+            </header>
+
+            <div class="upload-card">
+                <div class="upload-area" id="uploadBox">
+                    <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/>
+                    </svg>
+                    <h3 class="upload-title">Upload Image</h3>
+                    <p class="upload-text">Drag and drop your image here, or click to browse</p>
+                    <p class="upload-formats">Supported formats: PNG, JPG, JPEG, BMP</p>
+                    <input type="file" id="imageInput" accept=".png,.jpg,.jpeg,.bmp" hidden>
+                </div>
+                <button id="analyzeBtn" class="btn-analyze" disabled>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                    </svg>
+                    Analyze Image
+                </button>
+            </div>
+
+            <div id="loader" class="loader-container hidden">
+                <div class="loader-content">
+                    <div class="spinner"></div>
+                    <p class="loader-text">Analyzing image...</p>
+                    <p class="loader-subtext">Extracting hidden data and detecting threats</p>
+                </div>
+            </div>
+
+            <div id="results" class="results-container hidden">
+                <div class="results-header">
+                    <h2 class="results-title">Analysis Results</h2>
+                    <button class="btn-secondary" onclick="location.reload()">New Analysis</button>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon blue">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                <polyline points="14 2 14 8 20 8"/>
+                                <line x1="16" y1="13" x2="8" y2="13"/>
+                                <line x1="16" y1="17" x2="8" y2="17"/>
+                                <polyline points="10 9 9 9 8 9"/>
+                            </svg>
+                        </div>
+                        <div class="stat-content">
+                            <p class="stat-label">Hidden Text</p>
+                            <p class="stat-value" id="textStatus">Extracted</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon purple">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+                                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+                            </svg>
+                        </div>
+                        <div class="stat-content">
+                            <p class="stat-label">URLs Detected</p>
+                            <p class="stat-value" id="urlCount">0</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon green">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                <polyline points="22 4 12 14.01 9 11.01"/>
+                            </svg>
+                        </div>
+                        <div class="stat-content">
+                            <p class="stat-label">Benign URLs</p>
+                            <p class="stat-value" id="benignCount">0</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon red">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <line x1="12" y1="8" x2="12" y2="12"/>
+                                <line x1="12" y1="16" x2="12.01" y2="16"/>
+                            </svg>
+                        </div>
+                        <div class="stat-content">
+                            <p class="stat-label">Malicious URLs</p>
+                            <p class="stat-value" id="maliciousCount">0</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="result-section">
+                    <h3 class="section-title">Extracted Text</h3>
+                    <div class="text-box" id="hiddenText"></div>
+                </div>
+
+                <div class="result-section">
+                    <h3 class="section-title">URL Analysis</h3>
+                    <div id="urlResults" class="url-list"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

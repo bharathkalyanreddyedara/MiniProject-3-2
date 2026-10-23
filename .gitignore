@@ -1,0 +1,21 @@
+
+# Python virtual environments
+venv/
+.venv/
+env/
+
+# Python cache files
+__pycache__/
+*.py[cod]
+
+# Model files
+*.pkl
+*.joblib
+
+# IDE and environment files
+.vscode/
+.idea/
+.env
+
+# Logs
+*.log

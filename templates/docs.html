@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stego URL Security System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                    <circle cx="8.5" cy="8.5" r="1.5"/>
+                    <polyline points="21 15 16 10 5 21"/>
+                </svg>
+                <span>StegoGuard</span>
+            </div>
+            <div class="nav-links">
+                <a href="#" class="nav-link">Dashboard</a>
+                <a href="#" class="nav-link active">Documentation</a>
+            </div>
+        </div>
+    </nav>
+
+    <p>Welcome to StegoGuard!
+        A secured way of detecting malicious images.
+        This project is mainly designed to extract the content which was hidden in an image using LSB technique (Least Significant Bit) and then detect the URLs present within the images hidden.
+        We have used BiLSTM + RandomForest (Hybrid Model) for detecting and declare if the URLs extracted from the image are Benign (Safe) or Not (Malicious).
+    </p>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

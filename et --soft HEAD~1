@@ -1,0 +1,116 @@
+[33mcommit 45f5d43101f0a857bdead7ee4f20d57291f6c280[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Author: bharathkalyanreddyedara <edarabharath9333@gmail.com>
+Date:   Fri Oct 23 22:09:39 2026 +0530
+
+    Initial commit
+
+ .vscode/settings.json                              |      3 [32m+[m
+ app.py                                             |    262 [32m+[m
+ bilstm_url_model.h5                                |    Bin [31m0[m -> [32m17162824[m bytes
+ connect.py                                         |     10 [32m+[m
+ graph_code.py                                      |    141 [32m+[m
+ hybrid_weight.pkl                                  |    Bin [31m0[m -> [32m116[m bytes
+ install_ocr_qr.bat                                 |     24 [32m+[m
+ malicious_phish.csv                                | 651199 [32m++++++++++++++++++[m
+ quick_start.bat                                    |     30 [32m+[m
+ requirements.txt                                   |     10 [32m+[m
+ rf_model.pkl                                       |    Bin [31m0[m -> [32m620486418[m bytes
+ run.bat                                            |      8 [32m+[m
+ static/script.js                                   |    187 [32m+[m
+ static/style.css                                   |    696 [32m+[m
+ templates/docs.html                                |     38 [32m+[m
+ templates/index.html                               |    177 [32m+[m
+ tfidf_vectorizer.pkl                               |    Bin [31m0[m -> [32m144496[m bytes
+ tokenizer.pkl                                      |    Bin [31m0[m -> [32m1618[m bytes
+ train_models.py                                    |    284 [32m+[m
+ uploads/IMG-20250128-WA02241.jpg                   |    Bin [31m0[m -> [32m759740[m bytes
+ ...81d243bd2c585b0f4821__mypyc.cp312-win_amd64.pyd |    Bin [31m0[m -> [32m198656[m bytes
+ .../Flask_Cors-4.0.0.dist-info/INSTALLER           |      1 [32m+[m
+ .../Flask_Cors-4.0.0.dist-info/LICENSE             |      7 [32m+[m
+ .../Flask_Cors-4.0.0.dist-info/METADATA            |    147 [32m+[m
+ .../Flask_Cors-4.0.0.dist-info/RECORD              |     17 [32m+[m
+ .../Flask_Cors-4.0.0.dist-info/REQUESTED           |      0
+ .../site-packages/Flask_Cors-4.0.0.dist-info/WHEEL |      6 [32m+[m
+ .../Flask_Cors-4.0.0.dist-info/top_level.txt       |      1 [32m+[m
+ venv/Lib/site-packages/PIL/AvifImagePlugin.py      |    293 [32m+[m
+ venv/Lib/site-packages/PIL/BdfFontFile.py          |    122 [32m+[m
+ venv/Lib/site-packages/PIL/BlpImagePlugin.py       |    498 [32m+[m
+ venv/Lib/site-packages/PIL/BmpImagePlugin.py       |    517 [32m+[m
+ venv/Lib/site-packages/PIL/BufrStubImagePlugin.py  |     76 [32m+[m
+ venv/Lib/site-packages/PIL/ContainerIO.py          |    173 [32m+[m
+ venv/Lib/site-packages/PIL/CurImagePlugin.py       |     75 [32m+[m
+ venv/Lib/site-packages/PIL/DcxImagePlugin.py       |     84 [32m+[m
+ venv/Lib/site-packages/PIL/DdsImagePlugin.py       |    625 [32m+[m
+ venv/Lib/site-packages/PIL/EpsImagePlugin.py       |    481 [32m+[m
+ venv/Lib/site-packages/PIL/ExifTags.py             |    382 [32m+[m
+ venv/Lib/site-packages/PIL/FitsImagePlugin.py      |    152 [32m+[m
+ venv/Lib/site-packages/PIL/FliImagePlugin.py       |    184 [32m+[m
+ venv/Lib/site-packages/PIL/FontFile.py             |    134 [32m+[m
+ venv/Lib/site-packages/PIL/FpxImagePlugin.py       |    259 [32m+[m
+ venv/Lib/site-packages/PIL/FtexImagePlugin.py      |    115 [32m+[m
+ venv/Lib/site-packages/PIL/GbrImagePlugin.py       |    103 [32m+[m
+ venv/Lib/site-packages/PIL/GdImageFile.py          |    102 [32m+[m
+ venv/Lib/site-packages/PIL/GifImagePlugin.py       |   1217 [32m+[m
+ venv/Lib/site-packages/PIL/GimpGradientFile.py     |    153 [32m+[m
+ venv/Lib/site-packages/PIL/GimpPaletteFile.py      |     75 [32m+[m
+ venv/Lib/site-packages/PIL/GribStubImagePlugin.py  |     76 [32m+[m
+ venv/Lib/site-packages/PIL/Hdf5StubImagePlugin.py  |     76 [32m+[m
+ venv/Lib/site-packages/PIL/IcnsImagePlugin.py      |    402 [32m+[m
+ venv/Lib/site-packages/PIL/IcoImagePlugin.py       |    396 [32m+[m
+ venv/Lib/site-packages/PIL/ImImagePlugin.py        |    390 [32m+[m
+ venv/Lib/site-packages/PIL/Image.py                |   4246 [32m+[m
+ venv/Lib/site-packages/PIL/ImageChops.py           |    311 [32m+[m
+ venv/Lib/site-packages/PIL/ImageCms.py             |   1076 [32m+[m
+ venv/Lib/site-packages/PIL/ImageColor.py           |    320 [32m+[m
+ venv/Lib/site-packages/PIL/ImageDraw.py            |   1036 [32m+[m
+ venv/Lib/site-packages/PIL/ImageDraw2.py           |    243 [32m+[m
+ venv/Lib/site-packages/PIL/ImageEnhance.py         |    113 [32m+[m
+ venv/Lib/site-packages/PIL/ImageFile.py            |    938 [32m+[m
+ venv/Lib/site-packages/PIL/ImageFilter.py          |    607 [32m+[m
+ venv/Lib/site-packages/PIL/ImageFont.py            |   1320 [32m+[m
+ venv/Lib/site-packages/PIL/ImageGrab.py            |    224 [32m+[m
+ venv/Lib/site-packages/PIL/ImageMath.py            |    314 [32m+[m
+ venv/Lib/site-packages/PIL/ImageMode.py            |     85 [32m+[m
+ venv/Lib/site-packages/PIL/ImageMorph.py           |    317 [32m+[m
+ venv/Lib/site-packages/PIL/ImageOps.py             |    746 [32m+[m
+ venv/Lib/site-packages/PIL/ImagePalette.py         |    287 [32m+[m
+ venv/Lib/site-packages/PIL/ImagePath.py            |     20 [32m+[m
+ venv/Lib/site-packages/PIL/ImageQt.py              |    219 [32m+[m
+ venv/Lib/site-packages/PIL/ImageSequence.py        |     88 [32m+[m
+ venv/Lib/site-packages/PIL/ImageShow.py            |    362 [32m+[m
+ venv/Lib/site-packages/PIL/ImageStat.py            |    167 [32m+[m
+ venv/Lib/site-packages/PIL/ImageText.py            |    320 [32m+[m
+ venv/Lib/site-packages/PIL/ImageTk.py              |    266 [32m+[m
+ venv/Lib/site-packages/PIL/ImageTransform.py       |    136 [32m+[m
+ venv/Lib/site-packages/PIL/ImageWin.py             |    247 [32m+[m
+ venv/Lib/site-packages/PIL/ImtImagePlugin.py       |    103 [32m+[m
+ venv/Lib/site-packages/PIL/IptcImagePlugin.py      |    233 [32m+[m
+ venv/Lib/site-packages/PIL/Jpeg2KImagePlugin.py    |    448 [32m+[m
+ venv/Lib/site-packages/PIL/JpegImagePlugin.py      |    895 [32m+[m
+ venv/Lib/site-packages/PIL/JpegPresets.py          |    242 [32m+[m
+ venv/Lib/site-packages/PIL/McIdasImagePlugin.py    |     78 [32m+[m
+ venv/Lib/site-packages/PIL/MicImagePlugin.py       |    103 [32m+[m
+ venv/Lib/site-packages/PIL/MpegImagePlugin.py      |     84 [32m+[m
+ venv/Lib/site-packages/PIL/MpoImagePlugin.py       |    204 [32m+[m
+ venv/Lib/site-packages/PIL/MspImagePlugin.py       |    200 [32m+[m
+ venv/Lib/site-packages/PIL/PSDraw.py               |    237 [32m+[m
+ venv/Lib/site-packages/PIL/PaletteFile.py          |     54 [32m+[m
+ venv/Lib/site-packages/PIL/PalmImagePlugin.py      |    217 [32m+[m
+ venv/Lib/site-packages/PIL/PcdImagePlugin.py       |     68 [32m+[m
+ venv/Lib/site-packages/PIL/PcfFontFile.py          |    258 [32m+[m
+ venv/Lib/site-packages/PIL/PcxImagePlugin.py       |    228 [32m+[m
+ venv/Lib/site-packages/PIL/PdfImagePlugin.py       |    311 [32m+[m
+ venv/Lib/site-packages/PIL/PdfParser.py            |   1075 [32m+[m
+ venv/Lib/site-packages/PIL/PixarImagePlugin.py     |     72 [32m+[m
+ venv/Lib/site-packages/PIL/PngImagePlugin.py       |   1564 [32m+[m
+ venv/Lib/site-packages/PIL/PpmImagePlugin.py       |    375 [32m+[m
+ venv/Lib/site-packages/PIL/PsdImagePlugin.py       |    334 [32m+[m
+ venv/Lib/site-packages/PIL/QoiImagePlugin.py       |    235 [32m+[m
+ venv/Lib/site-packages/PIL/SgiImagePlugin.py       |    231 [32m+[m
+ venv/Lib/site-packages/PIL/SpiderImagePlugin.py    |    332 [32m+[m
+ venv/Lib/site-packages/PIL/SunImagePlugin.py       |    145 [32m+[m
+ venv/Lib/site-packages/PIL/TarIO.py                |     61 [32m+[m
+ venv/Lib/site-packages/PIL/TgaImagePlugin.py       |    264 [32m+[m
+ venv/Lib/site-packages/PIL/TiffImagePlugin.py      |   2338 [32m+[m
+ venv/Lib/site-packages/PIL/TiffTags.py             |    566 [32m+[m
+ venv/Lib/site-packages/PIL/WalImageFile.p
